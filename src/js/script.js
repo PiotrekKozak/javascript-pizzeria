@@ -23,6 +23,7 @@
       imageWrapper: '.product__images',
       amountWidget: '.widget-amount',
       cartButton: '[href="#add-to-cart"]',
+      activeProduct: '.product.active',
     },
     widgets: {
       amount: {
@@ -129,17 +130,15 @@
     initAccordion() {
       const thisProduct = this;
 
-      /* find the clickable trigger (the element that should react to clicking) */
-      //const clickableTrigger = this.element.querySelectorAll(select.menuProduct.clickable);
       /*START: add event listener to clickable trigger on event click */
       thisProduct.accordionTrigger.addEventListener('click', function (event) {
         /* prevent default action for event */
         event.preventDefault();
         /* find active product (product that has active class) */
-        const activeProduct = this.querySelector(classNames.menuProduct.wrapperActive);
+        const activeProduct = document.querySelector(select.menuProduct.activeProduct);
         /* if there is active product and it's not thisProduct.element, remove class active from it */
         if (activeProduct != thisProduct.element && activeProduct != null) {
-          this.classList.remove('active');
+          activeProduct.classList.remove('active');
         }
         /* toggle active class on thisProduct.element */
         thisProduct.element.classList.toggle('active');
@@ -191,18 +190,18 @@
           console.log(optionId, option);
 
           // create variable for option selected
-          const optionSelected = formData[paramID] && formData[paramId].includes(optionId);
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
 
           // check if there is param with a name of paramId in formData and if it includes optionId
           if (optionSelected) {
             // check if the option is not default
-            if (!option.default == true) {
+            if (!option.default) {
               // add option price to price variable
               price = price + option.price;
             }
           } else {
             // check if the option is default
-            if (option.default == true) {
+            if (option.default) {
               // reduce price variable
               price = price - option.price;
             }
