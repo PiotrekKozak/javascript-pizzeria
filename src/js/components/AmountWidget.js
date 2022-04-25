@@ -10,9 +10,6 @@ class AmountWidget {
       thisWidget.input.value || settings.amountWidget.defaultValue
     );
     thisWidget.initActions();
-
-    // console.log('AmountWidget:', thisWidget);
-    // console.log('constructor arguments:', element);
   }
   getElements(element) {
     const thisWidget = this;

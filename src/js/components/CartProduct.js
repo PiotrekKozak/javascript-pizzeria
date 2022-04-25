@@ -15,7 +15,6 @@ class CartProduct {
     thisCartProduct.getElements(element);
     thisCartProduct.initAmountWidget();
     thisCartProduct.initActions();
-    //console.log('thisCartProduct', thisCartProduct);
   }
 
   getElements(element) {
@@ -74,7 +73,6 @@ class CartProduct {
     thisCartProduct.dom.remove.addEventListener('click', function (event) {
       event.preventDefault();
       thisCartProduct.remove();
-      //console.log(thisCartProduct.remove);
     });
   }
 
