@@ -19,11 +19,8 @@ class Booking {
     /* create element using utils.createElementFromHTML */
     thisBooking.element = utils.createDOMFromHTML(generatedHTML);
 
-    /* find menu container */
-    const bookingContainer = document.querySelector(select.containerOf.booking);
-
     /* add element to menu */
-    bookingContainer.appendChild(thisBooking.element);
+    element.appendChild(thisBooking.element);
 
     thisBooking.dom = {};
     thisBooking.dom.wrapper = element;
